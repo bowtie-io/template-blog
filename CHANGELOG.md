@@ -9,3 +9,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Initial publication of blogging templates, error and maintenance page layouts, sample terms of service, BowTie theme styles, and a placeholder index page.
 - Created README
 - Added LICENSE
+
+## [0.0.2] - 2015-01-06
+### Added
+- updating user profile functions and variable names

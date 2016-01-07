@@ -23,7 +23,7 @@
         <label class="text">
           <i class="fa fa-twitter"></i>Twitter ID
         </label>
-        <input aria-required="true" class="string text form-control" id="twitter" maxlength="255" name="user[twitter]" placeholder="@example"  size="255" type="text" value="" />
+        <input aria-required="true" class="string text form-control" id="profile_twitter_handle" maxlength="255" name="profile[twitter_handle]" placeholder="@example"  size="255" type="text" />
       </div>
     </div>
     <div class='form-group'>
@@ -32,7 +32,7 @@
       </label>
       <div class="select-style">
         <div class="input select required">
-          <select class="select" id="select-something" name="user[selection]" >
+          <select class="select" id="profile_selection" name="profile[selection]" >
             <option>Example 1</option>
             <option>Example 2</option>
             <option>Example 3</option>
@@ -42,9 +42,9 @@
     </div>
     <div class='form-group'>
       <div class="field-box">
-        <label>Info:</label>
+        <label>Message:</label>
         <small class="pull-right note"> Input Instructions</small>
-        <textarea class="form-control" id="user_info" rows="4"></textarea>
+        <textarea class="form-control" id="profile_message" rows="4"></textarea>
       </div>
     </div>
     <br>
@@ -111,16 +111,18 @@
 
 
 <script type="text/javascript">
-bowtie.user.profile(function(user){
+bowtie.user.info(function(user){
   if(!user){
     // There is no user signed in
   }else{
     $("#user_name").val(user.name);
     $("#user_email").val(user.email);
     $("#user_plan").val(user.plan_id);
-    $("#twitter").val(user.twitter);
-    $("#user_info").val(user.info);
-    $("#select-something").val(user.selection);
   }
+});
+bowtie.user.profile(function(profile){
+    $("#profile_twitter_handle").val(profile.twitter_handle);
+    $("#profile_message").val(profile.message);
+    $("#profile_selection").val(profile.selection);
 });
 </script>
