@@ -1,0 +1,15 @@
+{% capture embedOutput %}
+{% if include.soundcloud %}
+<script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
+<div id="sc-player" style="padding: 0px 10px;"></div>
+<script type="text/javascript">
+  // https://developers.soundcloud.com/docs/api/reference#resolve
+  SC.oEmbed('{{ include.soundcloud }}', {
+    element: document.getElementById('sc-player'),
+    maxheight: 166
+  });
+</script>
+{% elsif include.spotify %}
+<iframe src="https://embed.spotify.com/?uri=spotify:track:{{ include.spotify }}" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+{% endif %}
+{% endcapture %}{{ embedOutput }}

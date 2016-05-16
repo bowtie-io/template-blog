@@ -1,7 +1,8 @@
-<!-- IMPORTANT: You will need to enter your email address into your form on your browser and submit first per Formspree.io's directions.
+<!-- IMPORTANT: You will need to enter your email address into your form on your browser on your browser and submit first per Formspree.io's directions.
  Go to your website and submit the form once. This will send you an email asking to confirm your email address, so that no one can start sending you spam from random websites. -->
 
-<section id="about" class="section">
+
+<section id="about" class="">
   <div class="container row-80 text-center">
     <div class="row">
       <column class="col-xs-7">
@@ -28,7 +29,7 @@
         <div class='form-group'>
           <div class="field-box">
             <label>Message</label>
-            <textarea class="form-control" id="user_info" name="Message" rows="4" required></textarea>
+            <textarea class="form-control" id="profile_message" name="Message" rows="4" required></textarea>
           </div>
         </div>
 
@@ -47,7 +48,7 @@
           <br>
           {{ site.theme.contact.address }}<br>
           {{ site.theme.contact.city }} {{ site.theme.contact.state }} {{ site.theme.contact.zip }}<br>
-          P: {{ site.theme.contact.phone }}
+          {% if site.theme.contact.phone %} P: {{ site.theme.contact.phone }} {% endif %}
         </span>
         <p>&nbsp;</p><br/>
         <span>
@@ -58,5 +59,6 @@
       </div>
     </column>
     </row>
+  </div>
   </div>
 </section>

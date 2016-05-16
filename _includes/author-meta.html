@@ -1,11 +1,11 @@
 {% if page.author %}
-  {% assign author = site.theme.authors[page.author] %}
+  {% assign author = site.authors | where:"name", page.author | first %}
 {% endif %}
 
 <p class="post-meta">
-  {% if page.author %}
-  <img class="img post-avatar pull-left" src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=64">
-  <span class="author">by {{ author.display_name }}</span>
+  {% if author %}
+  <img class="img post-avatar pull-left" src="{% if author.avatar_path %}{{ author.avatar_path }}{% else %}https://www.gravatar.com/avatar/{{ author.gravatar }}?s=64{% endif %}">
+  <span class="author">by {{ author.displayName }}</span>
     {% if author.twitter %}
       <span class="author-twitter"><a href="//twitter.com/{{ author.twitter }}"><i class="fa fa-twitter fa-1x"></i></a></span>
     {% endif %}

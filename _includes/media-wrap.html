@@ -1,0 +1,22 @@
+{% if page.style.media.video.url %}
+<div class="media-wrap video">
+  <video loop muted autoplay poster="{{page.style.media.video.posterurl_path}}" class="">
+    <source src="{{ page.style.media.video.url }}" type="{{ page.style.media.video.type }}">
+      <!-- add .ogv and .webm to cover all compatible devices  -->
+    </video>
+    {% if page.style.media.tint %}
+    <div class="media-tint"></div>
+    {% endif %}
+  </div>
+  <style>
+  @media (max-width: 767px) {.media-wrap.video {background: url('{{page.style.media.video.posterurl_path}}') center center / cover no-repeat;}}
+  </style>
+
+  {% elsif page.style.media.img.url_path %}
+  <div class="media-wrap">
+    <div style="background-image:url({{ page.style.media.img.url_path }});" class="media fullscreen-bg cover {% if page.style.media.img.parallax %}parallax {% endif %}{% if page.style.media.img.blur %}blur {% endif %}{% if page.style.media.img.pattern %}tile {% endif %}{% if page.style.media.img.overlay == 'dark' %}bgoverlayDark{% endif %}{% if page.style.media.img.overlay == 'light' %}bgoverlayLight{% endif %}"></div>
+    {% if page.style.media.tint %}
+    <div class="media-tint"></div>
+    {% endif %}
+  </div>
+  {% endif %}

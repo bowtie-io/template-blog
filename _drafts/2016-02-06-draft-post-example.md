@@ -1,17 +1,20 @@
 ---
-layout: post
-title:  This is a Draft Post
+layout: "post"
+title:  "This is a Draft Post"
 subtitle:
-author: john
-date: 2015-02-06 15:36:37
-masthead-img: false
-masthead-img-pat: /img/backgrounds/bg2.jpg
-categories: Hello-World-Draft
+author: "john"
+date: "2015-02-06 15:36:37"
+masthead:
+  img_path: false
+  pat_path: "/img/backgrounds/bg2.jpg"
+categories:
+  - "Hello World"
+  - "Draft"
 elsewhere:
-elsewhere-url:
+  name: ""
+  url: ""
 comments: true
 share: true
-
 ---
 
 To author new posts in draft mode, create and compose posts in the `_drafts` directory. This directory and the posts it contains will be excluded when you serve and build your site.

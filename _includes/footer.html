@@ -1,8 +1,16 @@
 <footer id="footer">
   <a name="connect"></a>
   <div class="container">
-    {% include social-links.html %}
-    {% include subfooter.html %}
+    <div class="subfooter">
+      {% include footer-nav.html %}
+      <span>Made with <a href="https://bowtie.io">⋈ BowTie</a>.</span>
+    </div>
+    {% include scroll-top-btn.html %}
   </div>
 </footer>
-{% include scroll-top-btn.html %}
+
+<script type="text/javascript" src="https://bowtie.io/assets/bowtie.js"></script>
+<script type="text/javascript" src="/bowtie/api/users/info.js"></script>
+<script type="text/javascript" src="/js/flash.js"></script>
+<script type="text/javascript" src="/js/authentication.js"></script>
+<script type="text/javascript" src="/js/theme.js"></script>

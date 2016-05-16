@@ -2,10 +2,10 @@
 <html>
   {% include head.html %}
 
-{% if page.masthead-img %}
+{% if page.masthead.img_path %}
 <style type="text/css">
    .masthead {
-     background:url("{{ page.masthead-img }}") no-repeat;
+     background:url("{{ page.masthead.img_path }}") no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -20,10 +20,10 @@
 </style>
 {% endif %}
 
-{% if page.masthead-img-pat %}
+{% if page.masthead.pat_path %}
 <style type="text/css">
    .masthead {
-    background:url("{{ page.masthead-img-pat }}") repeat;
+    background:url("{{ page.masthead.pat_path }}") repeat;
     position: relative;
     }
 </style>
@@ -35,15 +35,15 @@
       {% include flash.html %}
       {% include header.html %}
       <div id="content">
-        <div class="section masthead">
+        <section class="masthead">
           <header class="container">
             <div class="col-sm-12 col-lg-12">
               <h1 class="page-heading" style="text-align:center; font-weight:400 !important;">{{ page.title }}</h1>
               <h3 class="post-subtitle" style="text-align:center; font-weight:300 !important;">{{ page.subtitle }}</h3>
             </div>
           </header>
-        </div>
-        <div class="section">
+        </section>
+        <section>
           <div class="container">
             {{ content }}
           <hr>
@@ -52,7 +52,7 @@
             <li>Blog</li>
           </ol>
           </div>
-        </div>
+        </section>
       </div>
       {% include footer.html %}
     </div>

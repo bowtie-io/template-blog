@@ -1,13 +1,15 @@
 ---
-layout: blog-index
-permalink: /posts/
-title:  "Posts"
+layout: "blog-index"
+permalink: "/blog/"
+title:  "Blog"
 subtitle: "This is your blog index page."
-masthead-img: false
-masthead-img-pat: /img/backgrounds/bg2.jpg
-author: john
-date:   2015-01-01 12:00:01
-categories: bowtie blog
+masthead:
+  img_path: false
+  pat_path: "/img/backgrounds/bg2.jpg"
+author: "john"
+categories:
+  - "bowtie"
+  - "blog"
 comments:
 share:
 ---
@@ -17,7 +19,7 @@ share:
   <ul class="post-list">
     {% for post in site.posts %}
       {% if post.author %}
-        {% assign author = site.theme.authors[post.author] %}
+        {% assign author = site.authors | where:"name", post.author | first %}
       {% endif %}
       <li>
         <h2>

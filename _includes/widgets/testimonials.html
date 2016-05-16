@@ -1,0 +1,36 @@
+<link rel="stylesheet" type="text/css" href="/css/components/testimonials.css"/>
+  <div class="container row-90 text-center" data-ride="carousel" style="overflow: hidden; width: 100%;">
+    <ol class="carousel-indicators">
+      {% for testimonial in site.testimonials %}
+      <li data-target="#testimonial-carousel" data-slide-to="{{ forloop.index0 }}" {% if forloop.first == true %}class="active"{% endif %}></li>
+      {% endfor %}
+    </ol>
+    <div class="carousel-inner row-90 text-left {% if page.style.fade %}carousel-fade{% endif %}"><!-- slides -->
+      {% for testimonial in site.testimonials %}
+      <div class="item {% if forloop.first == true %}active{% endif %}" style="{% if page.style.height %}height:{{ page.style.height }}{% endif %}">
+        <div class="carousel-caption">
+          <img class="img profile-pic" src="{{ testimonial.avatar_path }}" alt="Slide">
+          <div>
+            <h1 class="testimonial">{{ testimonial.testimonial }}</h1>
+            <p> {{ testimonial.source }} - {{testimonial.title}}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#testimonial-carousel" data-slide="prev">
+      <span class="fa fa-angle-left"></span>
+    </a>
+    <a class="right carousel-control" href="#testimonial-carousel" data-slide="next">
+      <span class="fa fa-angle-right"></span>
+    </a>
+  </div> <!-- end carousel -->
+
+{% if page.style.timing %}
+ <script>
+  $('.carousel').carousel({
+   interval: '{{ page.style.timing }}'
+  });
+ </script>
+{% endif %}

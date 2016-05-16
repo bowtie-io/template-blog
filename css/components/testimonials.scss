@@ -4,8 +4,9 @@
 
 /****************** Testimonial Carousel ******************/
 
-#testimonial-carousel {
-  span {
+#testimonial-carousel, #slider {
+  .container {padding:0; width: calc(100%);}
+    span {
     word-break:keep-all;
     }
   img {
@@ -16,12 +17,19 @@
     vertical-align: middle;
     }
   .carousel-inner {
-    margin:30px auto 0 auto;
+    margin: 0 auto 0 auto;
+    padding: 0;
     overflow: visible;
       h1, h2, h3, h4, p {
       text-align:left;
       word-break:keep-all;
       margin:0;
+      }
+      h1.testimonial {
+        font-size: 2em;
+        font-weight: 400;
+        font-style:italic;
+        text-transform: none;
       }
     }
   .carousel {
@@ -37,7 +45,7 @@
       }
       .fa {
         font-size: 35px;
-        padding:180px 10px;
+        padding:200px 10px;
       }
     }
   .carousel-control.left, .carousel-control.right {
@@ -53,23 +61,130 @@
     float:right;
   }
   .testimonial .carousel-inner > .item {
-    transition: left 2200ms cubic-bezier(0.455, 0.03, 0.4, 0.955) 0s;
-    -webkit-transition: left 2200ms cubic-bezier(0.455, 0.03, 0.4, 0.955) 0s;
-  }
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transition: 0.6s ease-in-out left;
+    -webkit-transition: 0.6s ease-in-out left;
+    }
   .carousel-caption {
     position: relative;
     right: 0;
     bottom: 0;
     left: 0;
     z-index: 10;
-    padding-top: 30px;
+    padding: 80px 0;
     margin: 0 auto;
-    min-height:200px;
-    max-width: 600px;
+    min-height:250px;
+    max-width: 80%;
+    text-align:left;
     h1, h2, h3, h4, p {
       text-align: left !important;
       word-break:keep-all;
       margin:5px 0 0 0 !important;
     }
+    .btn {margin-top:1em;}
+  }
+  .slider-bgimg {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: inherit;
+    position: absolute;
+    width: calc(100% + 100px);
+    margin: -100px;
+    height: calc(100% + 150px);
+  }
+
+  .slider-bgimg.bgoverlayLight:after {
+      content: '';
+      position: absolute;
+      width: inherit;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.9));;
+    }
+    .slider-bgimg.bgoverlayDark:after {
+      content: '';
+      position: absolute;
+      width: inherit;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9));;
+    }
+}
+
+section#slider {padding: 50px 0 !important;}
+
+#slider {
+  .container{margin: -50px 0 !important;}
+  .section-content {margin-top:0px;}
+  .carousel-fade {
+    .carousel-inner {
+        .item {
+            transition-property: opacity;
+        }
+
+        .item,
+        .active.left,
+        .active.right {
+            opacity: 0;
+        }
+
+        .active,
+        .next.left,
+        .prev.right {
+            opacity: 1;
+        }
+
+        .next,
+        .prev,
+        .active.left,
+        .active.right {
+            left: 0;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+      .carousel-control {
+          z-index: 2;
+      }
+  }
+}
+
+section.carousel.slide {
+  padding-left:0 !important;
+  padding-right:0 !important;
+  .carousel-inner .item {
+  min-height:400px;
+  }
+}
+
+
+@media (max-width: 767px){
+  .carousel-caption {
+    width:75%;
+  }
+  #testimonial-carousel {
+    img {
+      float: unset;
+      margin-bottom: 20px;
+      margin: 20px auto;
+      display:inherit;
+      }
+    }
+}
+
+
+
+
+
+@media (max-width: 480px){
+  .carousel-caption {
+    padding: 50px 25px;
+    width:75%;
   }
 }

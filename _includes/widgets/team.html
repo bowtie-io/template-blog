@@ -1,0 +1,17 @@
+<div class="row-80 text-center">
+  {% for member in site.team %}
+  {% cycle 'add row' : '<span class="row"> <div class="center-team">', nil, nil %}
+  <column class="col-sm-4 animateEntry">
+    <img class="img-circle img profilepic" src="{% if member.avatar_path %}{{member.avatar_path}}{% else %}{{member.gravatar}}{% endif %}">
+    <h4 class="name">{{member.displayName}}{% if member.jobTitle %} | {{member.jobTitle}}{% endif %}</h4>
+    {% if member.bio %}<p class="area">{{member.bio}}</p>{% endif %}
+    <div class="row social-media">
+      {% if member.linkedin %}<a href="//linkedin.com/{{member.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a>{% endif %}
+      {% if member.github %}<a href="//github.com/{{member.github}}" target="_blank"><i class="fa fa-github"></i></a>{% endif %}
+      {% if member.twitter %}<a href="//twitter.com/{{member.twitter}}" target="_blank"><i class="fa fa-twitter"></i></a>{% endif %}
+      {% if member.email %}<a mailto:="{{member.email}}" target="_blank" class="email"><i class="fa fa-envelope-o"></i></a>{% endif %}
+    </div>
+  </column>
+  {% cycle 'end row' : nil, nil, '</div> </span>' %}
+  {% endfor %}
+</div>

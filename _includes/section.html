@@ -1,0 +1,44 @@
+{% assign sections = site.sections | where: "location", include.location  %}
+{% for section in sections %}
+  <section {% if section.style.id %}id="{{section.style.id}}"{% endif %} class="{{section.style.class }} {%if section.style.sectioncolor %}{{ section.style.sectioncolor }}{% endif %}" >
+    {% include section-background.html %}
+    <a name="{{section.style.id}}"></a>
+    <div class="container">
+    {% if section.head.title %}
+    <div class="section-header">
+    {% if section.head.title %}
+      <h2>{{ section.head.title }}</h2>
+    {% endif %}
+    {% if section.head.subtitle %}
+      <h3>{{ section.head.subtitle }}</h3>
+    {% endif %}
+    </div>
+    {% endif %}
+    <div class="content section-content">
+      {{ section.content }}
+    </div>
+    {% if section.cta %}
+      <div class="cta text-center">
+      {% if section.cta.headline %}
+        <h3>{{ section.cta.headline }}</h3>
+      {% endif %}
+      {% if section.cta.btnLink %}
+        <a href="{{section.cta.btnLink}}">
+          <button class="btn {{ section.cta.btnType }}">{{ section.cta.btnText }}</button>
+        </a>
+      {% endif %}
+      {% if section.cta.subtext %}
+        <h4>{{ section.cta.subtext }}</h4>
+      {% endif %}
+      </div>
+    {% endif %}
+    </div>
+  </section>
+
+{% if section.style.font_color %}
+<style>
+#{{section.style.id}}, #{{section.style.id}} h1, #{{section.style.id}} p, #{{section.style.id}} h2, #{{section.style.id}} h3, #{{section.style.id}} h4, #{{section.style.id}} h5, #{{section.style.id}} i, #{{section.style.id}} .row, #{{section.style.id}} p {color:{{section.style.font_color}} !important;}
+</style>
+{% endif %}
+
+{% endfor %}

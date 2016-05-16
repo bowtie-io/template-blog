@@ -1,0 +1,31 @@
+<form action="//formspree.io/{{ site.email }}" method="POST" class="text-left">
+  <div class='form-group'>
+    <div class="input">
+      <label class="text">
+        Your Name
+      </label>
+      <input aria-required="true" class="string text form-control" id="twitter" maxlength="255" name="Name" placeholder="Jane Doe" size="255" type="text" required/>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class="input">
+      <label class="text">
+        <i class="fa fa-envelope-o"></i>Email Address
+      </label>
+      <input aria-required="true" class="string text form-control" maxlength="255" name="Email" id="user_email" placeholder="jane@example.com" size="255" type="text" required/>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class="field-box">
+      <label>Message</label>
+      <textarea class="form-control" id="profile_message" name="Message" rows="4" required></textarea>
+    </div>
+  </div>
+
+  <div class='form-actions text-center'>
+    <input id="Submit" class="button btn btn-success" name="Submit" type="submit" value="Create Email" />
+    <input type="hidden" name="_next" value="{{ site.url }}" />
+  </div>
+</form>

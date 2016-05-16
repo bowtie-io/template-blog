@@ -1,0 +1,9 @@
+<link rel="stylesheet" type="text/css" href="/css/components/press.css"/>
+
+<div class="press-logos row text-center">
+  {% for link in site.press %}
+  <a href="{{ link.url }}" target="_blank">
+    <img alt="{{ link.title }}" src="{{ link.img_path }}">
+  </a>
+  {% endfor %}
+</div>

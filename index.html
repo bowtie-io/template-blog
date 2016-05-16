@@ -1,12 +1,11 @@
 ---
-layout: landing
-permalink: 
+layout: "landing"
+permalink:
 exclude_from_nav: true
-bannerimg: img/backgrounds/author.jpg
+bannerimg: "img/backgrounds/author.jpg"
 author:
 ---
 
 {% include nav-bootstrap.html %}
-{% include sections/hero.html %}
-{% include sections/post-summaries.html %}
-{% include sections/email-form.html %}
+
+{% include section.html location="homepage" %}

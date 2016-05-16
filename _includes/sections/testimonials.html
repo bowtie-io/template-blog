@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="/css/components/testimonials.css"/>
 
-<section id="testimonial-carousel" class="section black carousel slide testimonial" data-ride="carousel" style="overflow: hidden; width: 100%;">
+<section id="testimonial-carousel" class="black carousel slide testimonial" data-ride="carousel" style="overflow: hidden; width: 100%;">
   <div class="container row-90 text-center">
     <h4>What People Are Saying:</h4>
     <ol class="carousel-indicators">
@@ -45,23 +45,4 @@
       <span class="fa fa-angle-right"></span>
     </a>
   </div> <!-- end carousel -->
-
-        <button id="pauseButton" type="button" class="btn btn-default btn-xs">
-          <span class="glyphicon glyphicon-pause"></span>
-      </button>
-
 </section>
-<script type="javascript">
-$(function () {
-    $('#testimonial-carousel').carousel({
-        interval:10000,
-        pause: "false"
-    });
-$('#testimonial-carousel').click(function () {
-        $('#homeCarousel').carousel('cycle');
-    });
-    $('#pauseButton').click(function () {
-        $('#testimonial-carousel').carousel('pause');
-    });
-});
-</script>

@@ -2,7 +2,7 @@
 layout: blog
 ---
 {% if page.author %}
-  {% assign author = site.theme.authors[page.author] %}
+  {% assign author = site.authors | where:"name", page.author | first %}
 {% endif %}
 
  <div class="post">
@@ -10,8 +10,8 @@ layout: blog
     {{ content }}
   </article>
   <div class="post-metadata">
-    {% if page.author %}
-    by <a href="//twitter.com/{{ author.twitter }}">{{ author.display_name }}</a>
+    {% if author %}
+    by <a href="//twitter.com/{{ author.twitter }}">{{ author.displayName }}</a>
     {% endif %}
     {{ page.date | date: "%b %-d, %Y" }}
     {% if page.categories %}
@@ -20,8 +20,8 @@ layout: blog
   </div>
   <br />
 
-  {% if page.elsewhere %}
-  <h6 class="elsewhere">Reposted from:<a href="{{page.elsewhere-url}}">{{ page.elsewhere }}</a></h6>
+  {% if page.elsewhere.name %}
+  <h6 class="elsewhere">Reposted from:<a href="{{page.elsewhere.url}}">{{ page.elsewhere.name }}</a></h6>
   {% endif %}
 
   {% if page.share %}

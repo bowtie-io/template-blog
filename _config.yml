@@ -1,9 +1,7 @@
 # Site settings
-title: Your title - BowTie.io
+title: Just a Blog - a Jekyll blogging template by BowTie.io
 description: >
-  Write a description for your new BowTie site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  A hosted markdown blog with intuitive online editing. BowTie makes it easy to build sites, blogs, or static apps that you can hand off to clients.
 
 email: info@example.com
 
@@ -15,11 +13,11 @@ author_thumbnail: /img/user1.png # default author avatar
 
 # Theme additions - please update the default values if you intend to use these variables
 
-google_analytics_id: ""  # Your google analytics ID (e.g. 'UA-XXXXXXXX-X')
+google_analytics_id:  # Your google analytics ID (e.g. 'UA-XXXXXXXX-X')
 
 theme:
-
-  contact:                          # Contact info, leave blank to ignore
+  # Company contact info
+  contact:
     company:  Company Name
     address:  1644 Platte
     city:     Denver
@@ -28,32 +26,18 @@ theme:
     country:  USA
     phone:
     latlng:   39.733536,-104.992611 # (e.g. '39.733536,-104.992611')
-    twitter:  twitter               # (e.g. 'https://twitter.com/twitter')
-    facebook: facebook              # (e.g. 'https://www.facebook.com/facebook')
-    github:                         # (e.g. 'https://github.com/github')
-    instagram:                      # (e.g. 'https://instagram.com/instagram')
+    twitter:  twitter               # (e.g. 'twitter')
+    facebook: facebook              # (e.g. 'facebook')
+    github:                         # (e.g. 'github')
+    instagram:                      # (e.g. 'instagram')
     flickr:                         # (e.g. 'groups/2772799@N24/')
-    linkedin:                       # (e.g. 'company/example')
+    linkedin:                       # (e.g. 'company/linkedin')
     youtube:                        # (e.g. 'channel/UCovWO5keLOLcLu8WdO-ABJw')
 
-  authors:                          # Author attribution data
-    john:
-      display_name: John Doe
-      gravatar:     1985af848d639efd74c6af48f242cfa8  # use hash only (e.g. '1985af848d639efd74c6af48f242cfa8')
-      email:                        # (e.g. 'info@example.com')
-      web:                          # (e.g. 'https://example.com')
-      twitter:                      # (e.g. 'https://twitter.com/twitter')
-      facebook:                     # (e.g. 'https://www.facebook.com/facebook')
-      github:                       # (e.g. 'https://github.com/github')
-      instagram:                    # (e.g. 'https://instagram.com/instagram')
-      flickr:                       # (e.g. 'groups/2772799@N24/')
-      linkedin:                     # (e.g. 'company/example')
-      youtube:                      # (e.g. 'channel/UCovWO5keLOLcLu8WdO-ABJw')
 
-  disqus_id:        bowtieexample   # From your Add This account (e.g. 'bowtieexample')
+  disqus_id:   bowtieexample        # From your Disqus account (e.g. 'bowtieexample')
 
   addthis_id:                       # From your Add This account (e.g. 'ra-00000a0a00a00aaa')
-
 
 # Permalinks
 permalink:           /:categories/:title/
@@ -83,3 +67,12 @@ keep_files: [] # Files/Folders located inside the ./_site folder to be retained 
 exclude:
   - .gitignore
   - .sass-cache
+
+# define collection objects
+collections:
+  authors:
+    output: false
+  team:
+    output: false
+  sections:
+    output: false

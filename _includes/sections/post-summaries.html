@@ -1,6 +1,4 @@
-
-
-<section class="generic section">
+<section class="generic">
 <a name="posts"></a>
   <div class="container text-center">
     <h1>Recent Posts</h1>
@@ -8,7 +6,7 @@
     <ul class="post-list text-left">
         {% for post in site.posts %}
           {% if post.author %}
-            {% assign author = site.theme.authors[post.author] %}
+            {% assign author = site.authors | where:"name", post.author | first %}
           {% endif %}
           <li>
             <h2>

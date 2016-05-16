@@ -1,8 +1,22 @@
 <nav id="nav" class="navbar navbarfixed" role="navigation" data-spy="affix" data-offset-top="0">
   <div id="navbarinner" class="navbar-inner">
     <div class="navbar-header">
-    {% include navbar-brand.html %}
-    {% include nav1.html %}
+    <a class="site-title navbar-brand" href="{{ site.baseurl }}/">
+      <img style="display:inline-block;" src="/img/logo.png" alt="{{{ image.alt }}}">
+    </a>
+      <!-- Brand and toggle grouped for mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle btn-transparent" data-toggle="collapse" data-target=".navbar-1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="fa fa-bars fa-lg"></span>
+          <span>&nbsp;Menu</span>
+        </button>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-1-collapse">
+        {% include nav1.html %}
+      </div><!-- /.navbar-collapse -->
     </div>
   </div><!-- /.navbar-inner -->
 </nav><!--.navbar -->

@@ -1,19 +1,22 @@
 ---
 layout: post
-title:  Welcome to your ⋈ BowTie Blog
-subtitle:  We wrote this cheatsheet to get you started.
+title: "Welcome to your ⋈ BowTie Blog"
+subtitle: We wrote this cheatsheet to get you started.
 author: john
-date: 2015-02-06 15:36:37
-masthead-img: false
-masthead-img-pat: /img/backgrounds/bg2.jpg
-categories: Hello-World BowTie
+date: "2016-01-13 15:36:37"
+masthead:
+  img_path: false
+  pat_path: /img/backgrounds/bg2.jpg
+categories:
+  - Hello World
+  - BowTie
 elsewhere:
-elsewhere-url:
+  name: null
+  url: null
 comments: true
 share: true
 
 ---
-
 Welcome to your new blog. Look familiar? ⋈ BowTie blogs are powered by [Jekyll][jekyll] - the easy to use static content generator. You can use this blog like any other Jekyll site; write markdown or html, then commit to publish. But, before you start publishing, you probably want to configure your site's [global settings](https://bowtie.io/help/bowtie-site-configuration/).
 
 We've tailored your blog to look sharp, including support for authorship, disqus comments, social-sharing, categories, and more. For a complete guide to blogging with BowTie, checkout our guide to [blogging with markdown](https://bowtie.io/help/blogging-with-bowtie/). Here are some cliff notes:

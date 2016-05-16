@@ -21,13 +21,13 @@
   position: relative;
   float: right;
   top: 100px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.75);
   z-index: 3;
-  padding: 0px 40px 15px 25px;
+  padding: 15px 0px;
   border-radius: 1px 0 1px 1px;
   color: #FFF;
-  width: 240px;
-  h4, p {color:#fff !important; margin-bottom:0;}
+  width: 200px;
+  h4, p {color:#fff !important; margin-bottom:0;text-align: center !important;}
 }
 
 h4.company-location {

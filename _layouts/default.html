@@ -3,17 +3,14 @@
   {% include head.html %}
 
   <body>
-      {% include flash.html %}
-      {% include header.html %}
-      <div id="content">
-        <div class="section first">
-          <div class="container wrapper">
-            {{ content }}
-          </div>
-        </div>
+    {% include flash.html %}
+    {% include header.html %}
+    <div id="content">
+      <div class="container-fluid wrapper">
+        {{ content }}
       </div>
-      {% include footer.html %}
-
+    </div>
+    {% include footer.html %}
     {% include tracking.html %}
   </body>
 

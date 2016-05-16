@@ -1,44 +1,24 @@
-<section class="team section alt parallax tile">
+<section class="team dark parallax tile">
 <a name="team"></a>
   <div class="container row-80 text-center">
-    <h1>Your Team Section</h1>
-    <h3>Building Today, Shipping Tomorrow.</h3>
+    <h1>The Team</h1>
+    <h3>We're here to save the world.</h3>
     <span class="row">
-      <section class="center-team">
+      <div class="center-team">
+        {% for member in site.team %}
         <column class="col-sm-4">
-          <img class="img-circle img profilepic" src="/img/user1.png">
-          <h3 class="name">Clark Kent</h3>
-          <p class="area">Duis ac scelerisque libero.</p>
+          <img class="img-circle img profilepic" src="{% if member.avatar_path %}{{member.avatar_path}}{% else   %}{{member.gravatar}}{% endif %}">
+          <h3 class="name">{{member.displayName}}{% if member.jobTitle %} | {{member.jobTitle}}{% endif %}</h3>
+          {% if member.bio %}<p class="area">{{member.bio}}</p>{% endif %}
           <div class="row social-media">
-            <a href="//linkedin.com/#" target="_blank"><i class="fa fa-linkedin"></i></a>
-            <a href="//github.com/#" target="_blank"><i class="fa fa-github"></i></a>
-            <a href="//twitter.com/#" target="_blank"><i class="fa fa-twitter"></i></a>
-            <a href="//facebook.com/#" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+            {% if member.linkedin %}<a href="//linkedin.com/{{member.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a>{% endif %}
+            {% if member.github %}<a href="//github.com/{{member.github}}" target="_blank"><i class="fa fa-github"></i></a>{% endif %}
+            {% if member.twitter %}<a href="//twitter.com/{{member.twitter}}" target="_blank"><i class="fa fa-twitter"></i></a>{% endif %}
+            {% if member.email %}<a mailto:="{{member.email}}" target="_blank" class="email"><i class="fa fa-envelope-o"></i></a>{% endif %}
           </div>
         </column>
-        <column class="col-sm-4">
-          <img class="img-circle img profilepic" src="/img/user2.png">
-          <h3 class="name">Monica Rambeau</h3>
-          <p class="area">Duis ac scelerisque libero.</p>
-          <div class="row social-media">
-            <a href="//linkedin.com/#" target="_blank"><i class="fa fa-linkedin"></i></a>
-            <a href="//github.com/#" target="_blank"><i class="fa fa-github"></i></a>
-            <a href="//twitter.com/#" target="_blank"><i class="fa fa-twitter"></i></a>
-            <a href="//facebook.com/#" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
-          </div>
-        </column>
-        <column class="col-sm-4">
-          <img class="img-circle img profilepic" src="/img/user1.png">
-          <h3 class="name">Tony Stark</h3>
-          <p class="area">Duis ac scelerisque libero.</p>
-          <div class="row social-media">
-            <a href="//linkedin.com/#" target="_blank"><i class="fa fa-linkedin"></i></a>
-            <a href="//github.com/#" target="_blank"><i class="fa fa-github"></i></a>
-            <a href="//twitter.com/#" target="_blank"><i class="fa fa-twitter"></i></a>
-            <a href="//facebook.com/#" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
-          </div>
-        </column>
-      </section>
+        {% endfor %}
+      </div>
     </span>
   </div>
 </section>

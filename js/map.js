@@ -8,7 +8,7 @@ function initialize() {
   var mapOptions = {
     center: latlng,
     scrollwheel: false,
-    zoom: 9,
+    zoom: 14,
     navigationControl: false,
     mapTypeControl: false,
     scaleControl: false,

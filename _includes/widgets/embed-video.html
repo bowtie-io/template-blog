@@ -1,0 +1,20 @@
+{% capture embedOutput %}
+{% if include.width %}
+  {% assign embedWidth = include.width %}
+{% endif %}
+{% if include.height %}{% assign embedHeight = include.height %}{% endif %}
+
+{% if include.vimeo %}
+  {% capture embedSource %}https://player.vimeo.com/video/{{ include.vimeo }}{% endcapture %}
+{% elsif include.youtube %}
+  {% capture embedSource %}https://www.youtube.com/embed/{{ include.youtube }}{% endcapture %}
+{% endif %}
+
+{% if include.responsive %}
+<div class="embed-responsive embed-responsive-{{ include.responsive }}">
+  <iframe class="embed-responsive-item" src="{{ embedSource }}"  frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div>
+{% else %}
+<iframe width="{{ embedWidth }}" height="{{ embedHeight }}" src="{{ embedSource }}"  frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+{% endif %}
+{% endcapture %}{{ embedOutput }}

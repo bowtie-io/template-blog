@@ -1,0 +1,33 @@
+{% if section.style %}
+  {% assign style = section.style %}
+{% elsif page.style %}
+  {% assign style = page.style %}
+{% endif %}
+
+{% if style.media.video.url_path %}
+  <div class="media-wrap video">
+    <video loop muted autoplay poster="{{style.media.video.posterurl_path}}" class="">
+      <source src="{{ style.media.video.url_path }}" type="{{ style.media.video.type }}">
+        <!-- add .ogv and .webm to cover all compatible devices  -->
+    </video>
+    {% if style.tint_color %}
+      <div class="media-tint" style="background:{{ style.tint_color }};"></div>
+    {% endif %}
+  </div>
+  <style>
+  @media (max-width: 767px) {.media-wrap.video {background: url('{{ style.media.video.posterurl_path }}') center center / cover no-repeat;}}
+  </style>
+
+{% elsif style.media.img.url_path %}
+  <div class="media-wrap">
+    <div style="background-image:url({{ style.media.img.url_path }});" class="media fullscreen-bg cover {% if style.media.img.parallax %}parallax {% endif %}{% if style.media.img.blur %}blur {% endif %}{% if style.media.img.pattern %}tile {% endif %}{% if style.media.img.overlay == 'dark' %}bgoverlayDark{% endif %}{% if style.media.img.overlay == 'light' %}bgoverlayLight{% endif %}"></div>
+  {% if style.tint_color %}
+    <div class="media-tint" style="background:{{ style.tint_color }};"></div>
+  {% endif %}
+  </div>
+
+{% elsif style.tint_color %}
+  <div class="media-wrap">
+    <div class="media-tint" style="background:{{ style.tint_color }};"></div>
+  </div>
+{% endif %}

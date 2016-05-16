@@ -1,0 +1,77 @@
+  <div class='pricing row'>
+  {% for item in site.pricing %}
+    {% if item.optional %}{% continue %}{% endif %}
+    <div class='col-md-3 col-sm-6'><!--PLAN 2-->
+      <div class='plan panel panel-default {% if item.featured %}prominent-plan{% endif %}'>
+        <div class="panel-heading plan-name">
+          {{ item.title }}
+        </div>
+        <div class='panel-body text-center'>
+          <div class='price'>
+            <span class="dollar">$</span>
+            {{ item.price }}
+            <span class='unit'>
+            / {{ item.unit }}
+            </span>
+          </div>
+          {% if item.cta %}
+          <a href="{{ item.cta.url }}">
+            <button class="btn btn-default row">{{ item.cta.btntext}}</button>
+          </a>
+          {% endif %}
+          <ul class='plan-features list-group'>
+            {% if item.points.first %}
+            <hr>
+            <li class='list-group-item'>{{ item.points.first }}</li>
+            {% endif %}
+            {% if item.points.second %}
+            <hr>
+            <li class='list-group-item'>{{ item.points.second }}</li>
+            {% endif %}
+            {% if item.points.third %}
+            <hr>
+            <li class='list-group-item'>{{ item.points.third }}</li>
+            {% endif %}
+            {% if item.points.fourth %}
+            <hr>
+            <li class='list-group-item'>{{ item.points.fourth }}</li>
+            {% endif %}
+            {% if item.points.fifth %}
+            <hr>
+            <li class='list-group-item'>{{ item.points.fifth }}</li>
+            {% endif %}
+            {% if item.points.primary %}
+            <li class='list-group-item'><strong>{{ item.points.primary }}</strong></li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+  {% assign options = site.pricing | where: "optional", "true" %}
+  <div class="pricing row">
+    {% for item in options %}
+    <div class="col-sm-4">
+      <div class="plan panel panel-default horiz-padding">
+        <div class="panel-heading plan-name">
+          {{ item.title }}
+        </div>
+        <div class='panel-body text-center'>
+          <div class='price'>
+            <span class="dollar">
+              $
+            </span>
+              {{ item.price }}
+            <span class="unit">
+               / {{ item.unit }}
+            </span>
+          </div>
+          {% if item.points.primary %}
+          <p>{{ item.points.primary }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>

@@ -8,7 +8,7 @@
 
 .blog {
 	#content {
-		.section {
+		section {
 			padding:50px 0;
 		}
 		.post-header{
@@ -23,14 +23,14 @@
 		body, p {
 			font-size:15px;
 			font-weight:400;
-			font-family:'lato', helvetica, sans-serif;
+			font-family: helvetica, sans-serif;
 		}
 		h2 {
 			font-size:1.85em;
 			font-weight:400;
 			margin:1.5em 0 .5em;
 			color:#333;
-			font-family:'lato', helvetica, sans-serif;
+			font-family: helvetica, sans-serif;
 		}
 		h3 {
 			font-size:1.5em;
@@ -63,7 +63,7 @@
 	}
 }
 
-.section {
+section {
 	ul.post-list {
 		width:80%;
 		margin:0 auto;
@@ -87,11 +87,11 @@
 	}
 }
 
-.section.black p, .section.black a {
+section.dark p, section.dark a {
 	color:#FFF !important;
 }
 
-.section #masthead h3 {
+section #masthead h3 {
 	color:#DDD !important;
 }
 
@@ -141,7 +141,7 @@ font-size: 20px !important;
 }
 
 .post-body-short {
-	margin: 25px 0 0px 0;font-size:medium;letter-spacing: 0.01rem;line-height: 1.5;font-family:'Noto-Serif',Georgia,Cambria,"Times New Roman",Times,serif;
+	margin: 25px 0 0px 0;font-size:medium;letter-spacing: 0.01rem;line-height: 1.5;font-family:Georgia,Cambria,"Times New Roman",Times,serif;
 }
 
 .post-metadata {

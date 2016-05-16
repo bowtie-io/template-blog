@@ -1,0 +1,97 @@
+<!-- include the Stripe checkout js and style reference in your head.html is using multiple products -->
+<script type="text/javascript" src="//checkout.stripe.com/checkout.js"></script>
+
+{% assign buttons = site.products | where: "productID", include.id  %}
+{% for button in buttons %}
+<div id="checkout" class="hideexpired stripe-button">
+<a name="checkout"></a>
+    <button id="{{ button.productID }}" class="checkout-button btn btn-success">{{ button.display.buttonText }}</button>
+    {% if button.display.fineprint %}<br><small>{{ button.display.fineprint }}</small>{% endif %}
+</div>
+
+<script type="text/javascript">
+$(window).bind("load", function(){
+  bowtie.config.get(function(env){
+    if(!env.stripe.publishable_key){
+      console.error("Stripe not connected to this BowTie Project Environment");
+      return;
+    }
+
+    var handler = StripeCheckout.configure({
+      // Add your Stripe live publishable key here.
+      key: env.stripe.publishable_key,
+      image: '//stripe.com/img/documentation/checkout/marketplace.png',
+      locale: 'auto',
+      {% if button.require_Billing_Address %}billingAddress: true,{% endif %}
+      {% if button.require_Shipping_Address %}shippingAddress: true,{% endif %}
+      token: function(token, args) {
+        // Use the token to create the charge with a server-side script.
+        // You can access the token ID with `token.id`
+        // This product ID is pulled from the offers.yml data file
+        bowtie.user.purchase('{{ button.productID }}', {
+          stripe_credit_card_token: token.id,
+          receipt_email: token.email,
+          {% if button.require_Billing_Address %}
+          billing: {
+           name: args.billing_name,
+           address: {
+             line1: args.billing_address_line1,
+             city:  args.billing_address_city,
+             state: args.billing_address_state,
+             postal_code:   args.billing_address_zip,
+             country: args.billing_address_country
+           }
+          },{% endif %}
+          {% if button.require_Shipping_Address %}
+          shipping: {
+           name: args.shipping_name,
+           address: {
+             line1: args.shipping_address_line1,
+             city:  args.shipping_address_city,
+             state: args.shipping_address_state,
+             postal_code:   args.shipping_address_zip,
+             country: args.shipping_address_country
+            }
+          },{% endif %}
+        }, function(charge){
+          // charge - https://stripe.com/docs/api#charge_object
+          if (charge.paid) {
+            bowtie.user.profile({
+              name: token.card.name,
+              stripe_email: token.email,
+              purchaseTitle: '{{ button.title }}',
+              purchaseAmount: '{{ button.price | divided_by: 100 }}',
+              purchaseDescription: '{{ button.display.description }}',
+              purchaseReceiptMessage: '{{ button.display.receipt_message }}',
+              purchaseFineprint: '{{ button.display.fineprint }}',
+            }, function(){
+              window.location.href = '{{ button.display.receipt_page_url }}';
+            });
+          }
+        }, function(error){
+          // error.status = "fail" || "error"
+          // error.errors = { property: [message], ... }
+          console.log(error);
+        });
+      }
+    });
+
+    $('#{{ button.productID }}').on('click', function(e) {
+      // Open Checkout with further options
+      handler.open({
+        image: '{{ button.display.img_path }}',
+        name: '{{ button.display.name }}',
+        description: '{{ button.display.description }}',
+        amount: {{ button.price }}
+      });
+      e.preventDefault();
+    });
+
+    // Close Checkout on page navigation
+    $(window).on('popstate', function() {
+      handler.close();
+    });
+  });
+});
+</script>
+{% endfor %}

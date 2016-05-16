@@ -6,13 +6,8 @@
 
 /***** your custom styles ****/
 
- #content .section.first, .blog #content .section.masthead {
-	padding-top:100px;
-}
-
-.site-header {
-	height:0;
-	min-height:0;
+ #content .section.first, .blog #content section.masthead {
+	padding-top:70px;
 }
 
 #hero.jumbotron {
@@ -22,7 +17,6 @@
 .page-title {
 display:block !important;
 }
-
 
 #hero.image-tagline{
 	img.logo {
@@ -39,51 +33,78 @@ padding:8px 1px 6px 11px;
 	padding: 10px 15px 6px;
 }
 
+body {
+	margin-bottom:0px;
+}
+
+section {position: relative;}
+
 /***** fonts (use @import... to add custom webfonts) ****/
 
 @import url(https://fonts.googleapis.com/css?family=Martel:400,300,200|Arvo:400,700);
 
-$primary-font: Martel;
+$primary-font: Martel; /** body, p **/
 $primary-font-weight: 300;
 $primary-font-color: null;
 
-$secondary-font: Martel;
-$secondary-font-weight: 300;
-$secondary-font-color: null;
+$heading-font: Arvo; /** h1, h2, h3, h4, h5 **/
+$heading-font-weight: 400;
+$heading-font-color: null;
 
-$header-font: Arvo; /** h1, h2, h3, h4, h5 **/
-$header-font-weight: 400;
-$header-font-color: null;
+$subheading-font: Martel; /** h3, h4, h5 **/ //should be subheading-heading-font
+$subheading-font-weight: 300;
+$subheading-font-color: null;
 
 $link-color: null;
 $link-weight: null;
 $link-hover-color: null;
 $link-hover-weight: null;
 
-/***** colors and highlights ****/
-
-$section: null;
-$section-font-color: null;
-
-$section-alt: null;
-$section-alt-font-color: null;
-
-$section-color: null;
-$section-color-font-color: null;
-
-$section-black: null;
-$section-black-font-color: null;
-
-$footer: #333;
-$footer-font-color: null;
-$footer-icon-color: null;
-$footer-link-color: null;
-$footer-link-hover-color: null;
-
 $nav: rgba(255,255,255,.85);
 $nav-hover: #ccc;
 $nav-font-color: #333;
 $nav-hover-font-color: #000;
+
+$footer: #333;
+$footer-font-color: null;
+$footer-link-color: null;
+$footer-link-hover-color: null;
+$subfooter-font-color: null;
+$subfooter-link-color: null;
+$footer-icon-color: null;
+$footer-border: none;
+
+/***** section settings and colors ****/
+
+$section-padding: null;
+$content-container-bg: null;
+
+$section-font-color: null;
+$section-heading-font-color: null;
+$section-subheading-font-color: null;
+$section-link-color: null;
+$section-link-hover-color: null;
+$section-bg: null;
+
+$section-bgclear-font-color: null;
+$section-bgclear-heading-font-color: #fff;
+$section-bgclear-subheading-font-color: #fff;
+$section-bgclear-link-color: null;
+$section-bgclear-link-hover-color: null;
+
+$section-alt-font-color: null;
+$section-alt-subheading-font-color: null;
+$section-alt-heading-font-color: null;
+$section-alt-link-color: null;
+$section-alt-link-hover-color: null;
+$section-alt-bg: null;
+
+$section-dark-font-color: null;
+$section-dark-heading-font-color: null;
+$section-dark-subheading-font-color: null;
+$section-dark-link-color: null;
+$section-dark-link-hover-color: null;
+$section-dark-bg: null;
 
 /***** buttons ****/
 
@@ -97,15 +118,23 @@ $warning: null;
 $warning-hover: null;
 $radius: null;
 
-/***** background images ****/
+/***** form styles ****/
+$form-headline-color: null;
+$form-background-color: null;
+$form-border: null;
+$form-box-shadow: null;
 
-body {
-	background:#333;
-}
+$mediatint: #65c4dc;
+$bgoverlayDark: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9));
+$bgoverlayLight: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.9));
+
+/***** background images ****/
 
 #team {
  background-image:url(/img/backgrounds/bg2.jpg) !important;
 }
+
+/***** theme variables below this line ****/
 
 /***** theme variables below this line ****/
 
@@ -120,16 +149,16 @@ a:hover, a:focus {
 }
 
 h1,h2,h3,h4,h5 {
-  font-weight: $header-font-weight;
-  font-family: $header-font, "Helvetica", sans-serif !important;
-  color: $header-font-color !important;
+  font-weight: $heading-font-weight;
+  font-family: $heading-font, "Helvetica", sans-serif;
+  color: $heading-font-color !important;
 }
 
 h3, h4 {
   align-content: center;
   text-transform: none;
-  font-family: $secondary-font !important;
-  color: $secondary-font-color !important;
+  font-family: $subheading-font !important;
+  color: $subheading-font-color !important;
 }
 
 body, p {
@@ -138,37 +167,44 @@ font-weight:$primary-font-weight !important;
 color:$primary-font-color !important;
 }
 
-.section {
-  background-color: $section;
-  h1, h2, h3 {
-    color:$section-font-color !important;
-  }
+/// new section overrides
+
+section {
+  background-color: $section-bg;
+  padding: $section-padding !important;
+  body, p, li, ul, h1, h2, h3, h4, h5 { color:$section-font-color !important;}
+  h1, h2 { color:$section-heading-font-color !important;}
+  h3, h4, h5 { color:$section-subheading-font-color !important;}
 }
-.section.alt {
-  background-color: $section-alt;
-  h1, h2, h3 {
-    color:$section-alt-font-color !important;
-  }
+section.alt {
+  background-color: $section-alt-bg;
+  body, p, li, ul, h1, h2, h3, h4, h5 { color:$section-alt-font-color !important;}
+  h1, h2 { color:$section-alt-heading-font-color !important;}
+  h3, h4, h5 { color:$section-alt-subheading-font-color !important;}
 }
 
-.section.color {
-  background-color: $section-color !important;
-  h1, h2, h3 { color:$section-color-font-color !important;
-  }
+section.dark {
+  background-color: $section-dark-bg;
+  body, p, li, ul, h1, h2, h3, h4, h5 { color:$section-dark-font-color !important;}
+  h1, h2 { color:$section-dark-heading-font-color !important;}
+  h3, h4, h5 { color:$section-dark-subheading-font-color !important;}
 }
 
-.section.black {
-  background-color: $section-black !important;
-  h1, h2, h3 { color:$section-black-font-color !important;
-  }
+section.bgclear {
+  background-color: transparent !important;
+  body, p, li, ul, h1, h2, h3, h4, h5 { color:$section-bgclear-font-color !important;}
+  h1, h2 { color:$section-bgclear-heading-font-color !important;}
+  h3, h4, h5 { color:$section-bgclear-subheading-font-color !important;}
 }
+
+.bgclear {background-color: transparent !important;}
+
 
 #footer {
   background-color:$footer;
   color:$footer-font-color;
-  .subfooter {
-    color:$footer-font-color;
-    }
+  border-top: $footer-border !important;
+  margin-top:-1px;
   a, a:visited, a:hover, a:active {
     color:$footer-link-color !important;
     }
@@ -178,6 +214,13 @@ color:$primary-font-color !important;
   i {
     color:$footer-icon-color;}
 }
+
+.subfooter {
+  color:$subfooter-font-color !important;
+  a, a:visited, a:hover, a:active {
+    color:$subfooter-link-color !important;
+    }
+  }
 
 #nav.navbar {
   background-color:$nav;
@@ -197,7 +240,7 @@ color:$nav-hover-font-color !important;
   border-color:$default;
 }
 
-.btn-default:hover,.btn-default:active  {
+.btn-default:hover,.btn-default:active,.btn-default:focus,  {
   background-color:$default-hover;
   border-color:$default-hover;
 }
@@ -206,17 +249,18 @@ color:$nav-hover-font-color !important;
   background-color:$info;
   border-color:$info;
 }
-.btn-info:hover,.btn-info:active  {
+
+.btn-info:hover,.btn-info:active,.btn-info:focus  {
   background-color:$info-hover;
   border-color:$info-hover;
 }
 
 .btn-warning {
   background-color:$warning;
-  border-color:$warning;
+  border: 2px solid $warning-hover;
 }
 
-.btn-warning:hover,.btn-warning:active  {
+.btn-warning:hover,.btn-warning:active,.btn-warning:focus  {
   background-color:$warning-hover;
   border-color:$warning-hover;
 }
@@ -226,7 +270,129 @@ color:$nav-hover-font-color !important;
   border-color:$success;
 }
 
-.btn-success:hover,.btn-success:active  {
+.btn-success:hover,.btn-success:active,.btn-success:focus,.btn-success:visited  {
   background-color:$success-hover;
   border-color:$success-hover;
 }
+
+.btn, .btn-sm, .btn-lg, .btn-xs {
+  border-radius:$radius !important;
+}
+
+
+#content{
+  #hero {
+  .action.form {
+    h2 {
+      color: $form-headline-color !important;
+      }
+    .email-form {
+      background: $form-background-color !important;
+      border: $form-border;
+      box-shadow: $form-box-shadow  !important;
+      }
+    }
+  }
+}
+
+.cover {
+  background:no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.tile {
+  background-size: inherit !important;
+  background-repeat:repeat !important;
+}
+
+.parallax {
+  background-attachment:fixed !important;
+}
+
+.fullscreen {
+  height:100%;
+  height:100vh;
+  padding:15% 10% !important;
+}
+
+.blur {
+  -webkit-filter: blur(3px);
+  filter: blur(3px);
+  filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='3');
+}
+
+.media-wrap {
+  width: 100%;
+  z-index: -100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  overflow: hidden;
+  video, .media {
+    z-index: -99;
+    vertical-align: baseline;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+  }
+  video {
+    height:100%;
+  }
+  .media-tint, .video-placeholder {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -98;
+    background: rgba(0,0,0,.25);
+  }
+  .media.bgoverlayLight:after {
+      content: '';
+      position: absolute;
+      width: inherit;
+      height: inherit;
+      top: 0;
+      left: 0;
+      height:100%;
+      background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.9));
+    }
+    .media.bgoverlayDark:after {
+      content: '';
+      position: absolute;
+      width: inherit;
+      height: inherit;
+      top: 0;
+      left: 0;
+      height:100%;
+      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9));
+    }
+}
+
+
+
+  .content-container {
+    section:nth-child(1) {
+      padding: $section-padding;
+      section:first-of-type {
+        margin: $section-padding;
+      }
+      section:nth-child(2) {
+        margin-top:-60px;
+        margin-bottom: 60px;
+      }
+    }
+    section > section:last-of-type {
+      margin-bottom:-60px;
+    }
+  }

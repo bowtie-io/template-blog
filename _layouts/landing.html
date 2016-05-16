@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+<html>
 {% include head.html %}
-<body>
-  <div id="landing">
-    {% include flash.html %}
-    <div id="content">
-      {{ content }}
-    </div>
-    {% include footer.html %}
-    {% include tracking.html %}
+<body id="landing">
+  {% include flash.html %}
+  <div id="content" class="{{ page.layout }}">
+    {{ content }}
   </div>
+  {% include scroll-top-btn.html %}
 </body>
+{% include footer.html %}
+{% include tracking.html %}
+</html>
