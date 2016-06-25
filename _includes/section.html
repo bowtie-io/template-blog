@@ -1,17 +1,34 @@
 {% assign sections = site.sections | where: "location", include.location  %}
 {% for section in sections %}
-  <section {% if section.style.id %}id="{{section.style.id}}"{% endif %} class="{{section.style.class }} {%if section.style.sectioncolor %}{{ section.style.sectioncolor }}{% endif %}" >
+  <section {% if section.style.id %}id="{{section.style.id}}"{% endif %} class="{{section.style.class }}" >
     {% include section-background.html %}
     <a name="{{section.style.id}}"></a>
     <div class="container">
+
     {% if section.head.title %}
     <div class="section-header">
+
+    {% if section.head.img_path %}
+      <div class="img-wrapper">
+        <img class="logo img-responsive img" alt="Logo" src="{{section.head.img_path}}"></img>
+      </div>
+    {% endif %}
+
     {% if section.head.title %}
-      <h2>{{ section.head.title }}</h2>
+      {% if forloop.first == true %}
+      <h1 class="title">{{ section.head.title }}</h1>
+      {% else %}
+      <h2 class="title">{{ section.head.title }}</h2>
+      {% endif %}
     {% endif %}
     {% if section.head.subtitle %}
-      <h3>{{ section.head.subtitle }}</h3>
+      {% if forloop.first == true %}
+      <h2 class="subtitle">{{ section.head.subtitle }}</h3>
+      {% else %}
+      <h3 class="subtitle">{{ section.head.subtitle }}</h3>
+      {% endif %}
     {% endif %}
+
     </div>
     {% endif %}
     <div class="content section-content">

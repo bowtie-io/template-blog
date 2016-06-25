@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="/css/components/testimonials.css"/>
-  <div class="container row-90 text-center" data-ride="carousel" style="overflow: hidden; width: 100%;">
+  <div class="container row-90 text-center" data-ride="carousel" {% if page.style.timing %} data-interval="{{ page.style.timing }}" {% endif %} style="overflow: hidden; width: 100%;">
     <ol class="carousel-indicators">
       {% for testimonial in site.testimonials %}
       <li data-target="#testimonial-carousel" data-slide-to="{{ forloop.index0 }}" {% if forloop.first == true %}class="active"{% endif %}></li>
@@ -26,11 +26,3 @@
       <span class="fa fa-angle-right"></span>
     </a>
   </div> <!-- end carousel -->
-
-{% if page.style.timing %}
- <script>
-  $('.carousel').carousel({
-   interval: '{{ page.style.timing }}'
-  });
- </script>
-{% endif %}

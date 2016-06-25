@@ -11,17 +11,13 @@
 }
 
 #hero.jumbotron {
-	padding-top:140px !important;
+	padding-top:80px !important;
 }
 
-.page-title {
-display:block !important;
-}
-
-#hero.image-tagline{
-	img.logo {
-	width: 180px;
-	padding-bottom:10px !important;
+#hero{
+	h1 {
+	font-weight:bold;
+  text-transform:uppercase;
 	}
 }
 

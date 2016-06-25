@@ -1,8 +1,10 @@
+<link rel="stylesheet" type="text/css" href="/css/components/testimonials.css"/>
+
 {% if include.transition == 'fade' %}{% assign carousel-transition = 'carousel-fade'  %}{% endif %}
 {% if include.height %}{% assign carousel-height = include.height  %}{% endif %}
 {% if include.timing %}{% assign carousel-timing = include.timing  %}{% endif %}
 
-<div data-ride="carousel" class="carousel slide" style="overflow: hidden; width: 100%;">
+<div data-ride="carousel" class="carousel slide" {% if carousel-timing %} data-interval="{{ carousel-timing }}" {% endif %} style="overflow: hidden; width: 100%;">
   <!-- slider indicator -->
   <div class="slider-body {{ carousel-transition }}">
   <ol class="carousel-indicators">
@@ -44,11 +46,3 @@
     </a>
   </div> <!-- end carousel -->
 </div>
-
-{% if carousel-timing %}
- <script>
-  $('.carousel').carousel({
-   interval: '{{ carousel-timing }}'
-  });
- </script>
-{% endif %}

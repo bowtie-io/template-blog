@@ -1,11 +1,12 @@
 ---
 location: "homepage"
 head:
-  title:
-  subtitle:
+  title: 'The Plot Thickens'
+  subtitle: 'Welcome to your story, backed by the most robust static publishing platform ever created.'
+  img_path: '/img/logo-badge.png'
 style:
   id: hero
-  class: jumbotron image-tagline fullscreen
+  class: 'jumbotron image-tagline bgclear fullscreen'
   media:
     img:
       url_path: "/img/backgrounds/author.jpg"
@@ -21,20 +22,9 @@ style:
   tint_color: 'rgba(0,0,0,0.0)'  
 cta:
   headline:
-  btnText:
-  btnType:
-  btnLink:
+  btnText: '<i class="fa fa-caret-down"></i>Read On'
+  btnType: btn-transparent
+  btnLink: '#posts'
   subtext:
 ---
-
-<div class="logo-display">
-  <img class="logo container img hidden-xs" alt="Logo" src="/img/logo-badge.png"></img>
-  <img class="logo container img-responsive visible-xs img" alt="Logo" src="/img/logo-badge.png"></img>
-  <h1 class="page-title">The Plot Thickens</h1>
-</div>
-
-  <h3>Welcome to your story, backed by the most robust static publishing platform ever created.</h3>
-  <br/>
-  <a href="#posts">
-    <button class="btn btn-transparent"><i class="fa fa-caret-down"></i>Read On</button>
-  </a>
+&nbsp;

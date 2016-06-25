@@ -1,7 +1,7 @@
 ---
 location: 'about'
 head:
-  title:
+  title: About
   subtitle:
 style:
   id: 'aboutus'

@@ -3,6 +3,7 @@ location:
 head:
   title:
   subtitle:
+  img_path:
 style:
   id:
   class:

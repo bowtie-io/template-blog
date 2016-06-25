@@ -1,0 +1,12 @@
+<script type="text/javascript" src="/vendor/jquery.countdown/dist/jquery.countdown.min.js"></script>
+<script type="text/javascript" src="/js/countdown.js"></script>
+
+<div class="count-down pull-center" id="count-down" data-countdown="{{ include.date }}" data-countdown-hide-oncomplete="true">
+  <span class="count hideexpired"><span class="count-wrap"><span class="digits" id="days"></span> Days</span> </span>
+  <span class="count hideexpired"><span class="count-wrap"><span class="digits" id="hours"></span> Hours</span> </span>
+  <span class="count hideexpired"><span class="count-wrap"><span class="digits" id="minutes"></span> Mins</span> </span>
+  <span class="count hideexpired"><span class="count-wrap"><span class="digits" id="seconds"></span> Secs</span></span>
+  <div class="count-down-complete">
+    <h2>{{ include.complete }}</h2>
+  </div>
+</div>
